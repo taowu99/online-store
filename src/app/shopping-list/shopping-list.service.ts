@@ -1,7 +1,8 @@
 import { Ingredient } from './../shared/ingredient.model';
-import { OnInit } from '@angular/core';
+import { OnInit, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+@Injectable()
 export class ShoppingListService implements OnInit{
   ingredientsChanged = new Subject<Ingredient[]>();    
   startedEditing = new Subject<number>();

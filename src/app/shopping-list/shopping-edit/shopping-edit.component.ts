@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  @ViewChild('f', {static: false}) editForm : NgForm; 
+  @ViewChild('f') editForm : NgForm; 
   ingredientIndex : number;
   subscription : Subscription;
   editedItem : Ingredient;
