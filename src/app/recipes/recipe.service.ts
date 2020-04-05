@@ -7,16 +7,18 @@ import { Injectable } from "@angular/core";
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>()
 
-    private recipes: Recipe[] = [
-        new Recipe("Recipe 1", 'This is test', 'https://ali.xinshipu.cn/20130210/original/1360433502308.jpg', [
-            new Ingredient('Meat', 1), new Ingredient('French Fries', 20)
-        ]),
-        new Recipe("Recipe 2", 'This is test 2', 'https://ali.xinshipu.cn/20120314/original/1331690411237.jpg', [
-            new Ingredient('Beef', 2), new Ingredient('water', 20)
-        ]),
-        new Recipe("Recipe 3", 'This is test 3', 'http://5b0988e595225.cdn.sohucs.com/images/20181006/5a77198527c342d591d76adddad1d153.jpeg', [
-            new Ingredient('Pork', 3), new Ingredient('Potato', 20)
-        ])];
+    // private recipes: Recipe[] = [
+    //     new Recipe("Recipe 1", 'This is test', 'https://ali.xinshipu.cn/20130210/original/1360433502308.jpg', [
+    //         new Ingredient('Meat', 1), new Ingredient('French Fries', 20)
+    //     ]),
+    //     new Recipe("Recipe 2", 'This is test 2', 'https://ali.xinshipu.cn/20120314/original/1331690411237.jpg', [
+    //         new Ingredient('Beef', 2), new Ingredient('water', 20)
+    //     ]),
+    //     new Recipe("Recipe 3", 'This is test 3', 'http://5b0988e595225.cdn.sohucs.com/images/20181006/5a77198527c342d591d76adddad1d153.jpeg', [
+    //         new Ingredient('Pork', 3), new Ingredient('Potato', 20)
+    //     ])];
+
+    private recipes: Recipe[] = [];
 
     getRecipes() {
         return this.recipes.slice();
