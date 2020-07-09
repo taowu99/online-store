@@ -1,3 +1,5 @@
+import { PlaceHolderDirective } from './shared/placeholder/placeholder.directive';
+import { AlertComponent } from './shared/alert/alert.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,7 +38,9 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     RecipeHomeComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent,
+    PlaceHolderDirective
   ],
   imports: [
     BrowserModule,
