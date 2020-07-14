@@ -19,17 +19,16 @@ export class DataStorageService {
     }
 
     fetchRecipes() {
-        
-                return this.http.get<Recipe[]>("https://ng-course-recipe-book-a044c.firebaseio.com/recipes.json"
-                ).pipe(
-            map( recipes => {
-                return recipes.map(recipe => {
-                    return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients: []};
-                });
-            }),
-            tap(recipes => {
-                this.recipseService.setRecipes(recipes);
-            })
-        );
+        return this.http.get<Recipe[]>("https://ng-course-recipe-book-a044c.firebaseio.com/recipes.json")
+            .pipe(
+                map( recipes => {
+                    return recipes.map(recipe => {
+                        return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients: []};
+                    });
+                }),
+                tap(recipes => {
+                    this.recipseService.setRecipes(recipes);
+                })
+            );
     }
 }
