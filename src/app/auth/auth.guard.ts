@@ -1,9 +1,8 @@
-import { User } from './user.model';
 import { AuthService } from './auth.service';
 import { CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, tap, take } from 'rxjs/operators'
+import { map, take } from 'rxjs/operators'
 
 @Injectable({providedIn: 'root'})
 export class AuthGrard implements CanActivate {
@@ -13,15 +12,11 @@ export class AuthGrard implements CanActivate {
         return this.authService.user.pipe(
             take(1),
             map(user => {
-            const isAuth = !!user;
-            if (isAuth)
-                return true;
-            return this.router.createUrlTree(['/auth']);
-        })
-        //, tap(isAuth => {
-        //     if (!isAuth)
-        //     this.router.navigate(['/auth']);
-        // })
+                const isAuth = !!user;
+                if (isAuth)
+                    return true;
+                return this.router.createUrlTree(['/auth']);
+            })
         );
     }
 }

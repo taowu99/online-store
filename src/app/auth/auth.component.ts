@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { NgForm } from '@angular/forms';
 import { Component, ComponentFactoryResolver, ViewChild } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Observable, Subscription } from 'rxjs';
 import { AuthResponseData } from './auth.service'
 
@@ -38,7 +36,7 @@ export class AuthComponent {
         
         let authObs: Observable<AuthResponseData> = 
             this.isLoginMode ? this.authSerivce.login(email,password) : this.authSerivce.signup(email, password);
-        authObs.subscribe(responseData => {
+        authObs.subscribe(() => {
             // console.log(responseData);
             this.error = "";
             this.isLoading = false;
