@@ -1,3 +1,4 @@
+import { AuthEffects } from './auth/store/auth.effect';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core.module';
 import * as fromApp from './store/app.reducer'
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import * as fromApp from './store/app.reducer'
     SharedModule,
     CoreModule,
     AuthModule,
-    StoreModule.forRoot(fromApp.appReducer)
+    StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
