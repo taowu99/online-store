@@ -1,3 +1,4 @@
+import * as AuthActions from './../auth/store/auth.action';
 import { User } from './../auth/user.model';
 import { Subscription } from 'rxjs';
 import { AuthService } from './../auth/auth.service';
@@ -33,7 +34,8 @@ export class HeaderComponent implements OnInit, OnDestroy{
     }
 
     onLogout() {
-        this.authService.logout();
+        // this.authService.logout();
+        this.store.dispatch(new AuthActions.Logout());
     }
 
     onSaveData() {
