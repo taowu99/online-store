@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core.module';
 import * as fromApp from './store/app.reducer'
 import { EffectsModule } from '@ngrx/effects';
+import { RecipeEffects } from './recipes/store/recipe.effects';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { EffectsModule } from '@ngrx/effects';
     CoreModule,
     AuthModule,
     StoreModule.forRoot(fromApp.appReducer),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects, RecipeEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
