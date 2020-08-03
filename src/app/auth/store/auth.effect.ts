@@ -149,10 +149,17 @@ export class AuthEffects {
                 _token: string,
                 _tokenExpirationDate: string
             } = JSON.parse(localStorage.getItem('userData'));
+
             if (!userData)
-            return {type: 'DUMMY'};
+                return {type: 'DUMMY'};
             else {
-                const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
+                const loadedUser = new User(
+                    userData.email, 
+                    userData.id, 
+                    userData._token, 
+                    new Date(userData._tokenExpirationDate)
+                );
+
                 if (loadedUser.token) {
                     const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
                     this.authService.setAutoLogoutTimer(expirationDuration);
@@ -162,7 +169,7 @@ export class AuthEffects {
                         userId: loadedUser.id,
                         token: loadedUser.token,
                         expirationDate: new Date(userData._tokenExpirationDate),
-                        redirect: true
+                        redirect: false
                     });
                     // this.autoLogout(expirationDuration);  
                 }
