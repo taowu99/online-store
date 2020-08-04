@@ -1,7 +1,5 @@
 import * as RecipesActions from './store/recipe.actions';
 import { Store } from '@ngrx/store';
-import { RecipeService } from './recipe.service';
-import { DataStorageService } from './../shared/data-storage.service';
 import { Recipe } from './recipe.model';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -13,8 +11,6 @@ import { of } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class RecipesResolverService implements Resolve<Recipe[]> {
     constructor(
-        private dataStorageService: DataStorageService, 
-        private recipeService: RecipeService,
         private store: Store<fromApp.AppState>,
         private actions$: Actions
     ) {}
